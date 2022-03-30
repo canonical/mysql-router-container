@@ -1,4 +1,4 @@
-FROM ubuntu:20.04 AS base
+FROM ubuntu:20.04
 
 ENV CONFIG_VERSION="0.8.22-1"
 
@@ -13,8 +13,6 @@ RUN apt-get update && \
     apt-get install -y mysql-shell\
         mysql-router && \
     rm -rf /var/lib/apt/lists/*
-
-FROM base AS runtime
 
 COPY run.sh /run.sh
 
