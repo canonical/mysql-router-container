@@ -10,6 +10,7 @@ RUN apt-get update && \
         -O /tmp/mysql-apt-config_${CONFIG_VERSION}_all.deb && \
     yes -4 | dpkg -i /tmp/mysql-apt-config_${CONFIG_VERSION}_all.deb && \
     apt-get update && \
+    apt-get install -y mysql-client && \
     apt-get install -y mysql-router && \
     rm -rf /var/lib/apt/lists/*
 
