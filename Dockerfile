@@ -14,3 +14,6 @@ RUN apt-get update && \
     apt-get install -y mysql-router && \
     rm -rf /var/lib/apt/lists/*
 
+COPY run.sh /run.sh
+
+EXPOSE 6446 6447
