@@ -62,8 +62,7 @@ EOF
       echo "Successfully contacted cluster with $MYSQL_INNODB_CLUSTER_MEMBERS members. Bootstrapping."
     fi
     echo "Succesfully contacted mysql server at $MYSQL_HOST. Trying to bootstrap."
-    # (shayancanonical) Adding the --conf-set-option as server_ssl_mode is not PREFERRED by default
-    mysqlrouter --bootstrap "$MYSQL_USER@$MYSQL_HOST:$MYSQL_PORT" --user=mysqlrouter --directory /tmp/mysqlrouter --force --conf-set-option DEFAULT.server_ssl_mode=PREFERRED < "$PASSFILE"
+    mysqlrouter --bootstrap "$MYSQL_USER@$MYSQL_HOST:$MYSQL_PORT" --user=mysqlrouter --directory /tmp/mysqlrouter --force < "$PASSFILE"
     sed -i -e 's/logging_folder=.*$/logging_folder=/' /tmp/mysqlrouter/mysqlrouter.conf
     echo "Starting mysql-router."
     exec "$@" --config /tmp/mysqlrouter/mysqlrouter.conf
