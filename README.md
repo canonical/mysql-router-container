@@ -1,19 +1,4 @@
 # mysql-router-container
 
-OCI image for MySQL Router operator.
+This repository has been deprecated and moved to the following [mysql-router launchpad project](https://code.launchpad.net/~data-platform/+git/mysql-router).
 
-Built for usage in the [MySQL Router Charmed Operator for k8s](https://github.com/canonical/mysql-router-container).
-
-## Build
-
-```shell
-docker build -t mysql-router:latest .
-```
-
-## Run
-
-<!--TODO -->
-
-## Environment Variables
-
-<!--TODO -->
