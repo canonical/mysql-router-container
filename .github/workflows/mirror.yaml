@@ -1,0 +1,41 @@
+name: Mirror to Launchpad
+
+on:
+  push:
+    branches:
+      - main
+      - 8.0-20.04
+workflow_dispatch:
+
+jobs:
+  mirror-to-launchpad:
+    name: Mirror to Launchpad
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mirror to Launchpad
+        run: |
+          # Clone bare repository manually (no bare in actions/checkout)
+          git clone --bare https://github.com/canonical/mysql-router-container.git
+          cd mysql-router-container
+          # Setup SSH key
+          mkdir -p ~/.ssh/
+          touch ~/.ssh/dataplatformbot.key
+          chmod 600 ~/.ssh/dataplatformbot.key
+          echo "${SSH_KEY_BOT}" > ~/.ssh/dataplatformbot.key
+          # Setup SSH config
+          echo "Host git.launchpad.net" >>~/.ssh/config
+          echo "  User dataplatformbot" >>~/.ssh/config
+          echo "  IdentityFile ~/.ssh/dataplatformbot.key" >>~/.ssh/config
+          echo "  StrictHostKeyChecking yes" >>~/.ssh/config
+          # Avoid 'Host key verification failed'
+          for ip in $(dig @8.8.8.8 git.launchpad.net +short); do
+            ssh-keyscan git.launchpad.net,$ip >> ~/.ssh/known_hosts
+            ssh-keyscan $ip >> ~/.ssh/known_hosts
+          done
+          # Push (mirror) Git repo to Launchpad
+          git push --mirror git+ssh://dataplatformbot@git.launchpad.net/~data-platform/+git/mysql-router
+          # Wipe SSH key
+          rm -rf ~/.ssh/dataplatformbot.key
+        env:
+          SSH_KEY_BOT: ${{ secrets.SSH_KEY_BOT }}
+
