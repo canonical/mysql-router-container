@@ -5,7 +5,7 @@ on:
     branches:
       - main
       - 8.0-20.04
-workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   mirror-to-launchpad:
@@ -13,10 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Mirror to Launchpad
+        env:
+          SSH_KEY_BOT: ${{ secrets.SSH_KEY_BOT }}
         run: |
           # Clone bare repository manually (no bare in actions/checkout)
           git clone --bare https://github.com/canonical/mysql-router-container.git
-          cd mysql-router-container
+          cd mysql-router-container.git
           # Setup SSH key
           mkdir -p ~/.ssh/
           touch ~/.ssh/dataplatformbot.key
@@ -36,6 +38,4 @@ jobs:
           git push --mirror git+ssh://dataplatformbot@git.launchpad.net/~data-platform/+git/mysql-router
           # Wipe SSH key
           rm -rf ~/.ssh/dataplatformbot.key
-        env:
-          SSH_KEY_BOT: ${{ secrets.SSH_KEY_BOT }}
 
