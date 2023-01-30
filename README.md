@@ -8,7 +8,7 @@ The steps outlined below are based on the assumption that you are building the R
 
 ### Clone Repository
 ```bash
-git clone git@github.com:jardon/mysql-router-container.git
+git clone git@github.com:canonical/mysql-router-container.git
 cd mysql-router-container
 ```
 ### Installing Prerequisites
