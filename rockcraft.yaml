@@ -24,12 +24,12 @@ parts:
     mysql-repo:
         plugin: nil
         override-pull: |
-            apt-get install -y wget \
-                lsb-release \
-                gnupg
+            export DEBIAN_FRONTEND=noninteractive
+            export CONFIG_VERSION=0.8.22-1
+            apt-get install -y wget lsb-release gnupg
             wget -q https://dev.mysql.com/get/mysql-apt-config_${CONFIG_VERSION}_all.deb \
                 -O /tmp/mysql-apt-config_${CONFIG_VERSION}_all.deb
-            yes -4 | dpkg -i /tmp/mysql-apt-config_${CONFIG_VERSION}_all.deb
+            dpkg -i /tmp/mysql-apt-config_${CONFIG_VERSION}_all.deb
             apt-get update
     mysql-deb:
         plugin: nil
