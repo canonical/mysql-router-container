@@ -1,19 +1,20 @@
 # mysql-router-container
 
-OCI image for MySQL Router operator.
+OCI image for MySQL Router. Developed for [MySQL Router Charmed Operator in K8s](https://github.com/canonical/mysql-router-k8s-operator).
 
-Built for usage in the [MySQL Router Charmed Operator for k8s](https://github.com/canonical/mysql-router-container).
+# Branches
 
-## Build
+| Branch    | Status       |
+| --------- | ------------ |
+| main      | Placeholder  |
+| 8.0-20.04 | Supported    |
+| 8.0-22.04 | Supported    |
 
-```shell
-docker build -t mysql-router:latest .
-```
+All other branches are not supported!
 
-## Run
+# License:
+The mysql-router OCI is distributed under the Apache Software License, version 2.0. It installs/operates/depends on [mysql-router](https://github.com/mysql/mysql-server/blob/8.0/router), which [is licensed](https://github.com/mysql/mysql-server/blob/8.0/router/LICENSE.router) under the GPL License, version 2.
+ 
+## Trademark Notice
+MySQL is a trademark or registered trademark of Oracle America, Inc. Other trademarks are property of their respective owners.
 
-<!--TODO -->
-
-## Environment Variables
-
-<!--TODO -->
