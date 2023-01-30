@@ -1,7 +1,7 @@
 # MySQL Router ROCK
 This repository contains the packaging metadata for creating a ROCK of MySQL built from the official ubuntu MySQL Router package from the Ubuntu repository and further installs mysql-client.  For more information on ROCKs, visit the [rockcraft Github](https://github.com/canonical/rockcraft). 
 
-Built for use in the [MySQL k8s charm](https://github.com/canonical/mysql-k8s-operator).
+Built for use in the [MySQL Router K8s Charm](https://github.com/canonical/mysql-router-k8s-operator).
 
 ## Building the ROCK
 The steps outlined below are based on the assumption that you are building the ROCK with the latest LTS of Ubuntu.  If you are using another version of Ubuntu or another operating system, the process may be different.
