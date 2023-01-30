@@ -40,7 +40,7 @@ parts:
             - util-linux
     wrapper:
         plugin: dump
-        source: run.sh
+        source: local
     non-root-user:
         plugin: nil
         after: [mysql-deb]
