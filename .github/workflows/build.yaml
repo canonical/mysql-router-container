@@ -1,8 +1,7 @@
-name: Build
+name: Build ROCK
 
 on:
   workflow_call:
-  pull_request:
 
 jobs:
   build:

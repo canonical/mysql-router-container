@@ -1,4 +1,4 @@
-name: charmed-mysql # the name of your ROCK
+name: mysql-router # the name of your ROCK
 base: ubuntu:20.04 # the base environment for this ROCK
 version: '0.8.22-1' # just for humans. Semantic versioning is recommended
 summary: Charmed MySQL Router ROCK OCI # 79 char long summary
