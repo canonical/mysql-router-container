@@ -25,12 +25,12 @@ parts:
         plugin: nil
         override-pull: |
             export DEBIAN_FRONTEND=noninteractive
-            export CONFIG_VERSION=0.8.22-1
+            export VERSION=0.8.22-1
             apt-get install -y wget lsb-release gnupg
-            wget -q https://dev.mysql.com/get/mysql-apt-config_${\
-                CONFIG_VERSION}_all.deb \
-                -O /tmp/mysql-apt-config_${CONFIG_VERSION}_all.deb
-            dpkg -i /tmp/mysql-apt-config_${CONFIG_VERSION}_all.deb
+            wget -q \
+              https://dev.mysql.com/get/mysql-apt-config_${VERSION}_all.deb \
+              -O /tmp/mysql-apt-config_${VERSION}_all.deb
+            dpkg -i /tmp/mysql-apt-config_${VERSION}_all.deb
             apt-get update
     mysql-deb:
         plugin: nil
