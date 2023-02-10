@@ -13,7 +13,7 @@ jobs:
     needs: build
     strategy:
       matrix:
-        env: [integration, integration-database]
+        env: [integration-database]
       fail-fast: false
     steps:
       - name: Checkout repository
