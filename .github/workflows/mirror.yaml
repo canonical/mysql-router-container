@@ -17,7 +17,8 @@ jobs:
           SSH_KEY_BOT: ${{ secrets.SSH_KEY_BOT }}
         run: |
           # Clone bare repository manually (no bare in actions/checkout)
-          git clone --bare https://github.com/canonical/mysql-router-container.git
+          git clone --bare \
+            https://github.com/canonical/mysql-router-container.git
           cd mysql-router-container.git
           # Setup SSH key
           mkdir -p ~/.ssh/
@@ -35,7 +36,7 @@ jobs:
             ssh-keyscan $ip >> ~/.ssh/known_hosts
           done
           # Push (mirror) Git repo to Launchpad
-          git push --mirror git+ssh://dataplatformbot@git.launchpad.net/~data-platform/+git/mysql-router
+          git push --mirror \
+            git+ssh://dataplatformbot@git.launchpad.net/~data-platform/+git/mysql-router
           # Wipe SSH key
           rm -rf ~/.ssh/dataplatformbot.key
-
