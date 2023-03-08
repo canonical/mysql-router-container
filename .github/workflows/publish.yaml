@@ -2,10 +2,10 @@ name: Publish ROCK
 on:
   push:
     branches:
-      - '*.*/stable'
+      - '*.*-[0-9]+.[0-9]+'
   workflow_dispatch:
     branches:
-      - '*.*/stable'
+      - '*.*-[0-9]+.[0-9]+'
 
 jobs:
   build:
@@ -40,7 +40,7 @@ jobs:
 
       - name: Import and push to Docker Hub
         run: |
-          version="$(cat rockcraft.yaml | yq e '.version')"
+          version=$(yq '.version + "-" + (.base|split(":"))[1] + "_edge" ' rockcraft.yaml)
           sudo skopeo \
             --insecure-policy \
             copy \
