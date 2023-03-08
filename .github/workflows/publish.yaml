@@ -40,10 +40,11 @@ jobs:
 
       - name: Import and push to Docker Hub
         run: |
+          rock_version=$(yq '.version' rockcraft.yaml)
           version=$(yq '.version + "-" + (.base|split(":"))[1] + "_edge" ' rockcraft.yaml)
           sudo skopeo \
             --insecure-policy \
             copy \
-            oci-archive:"mysql-router_${version}_amd64.rock" \
+            oci-archive:"mysql-router_${rock_version}_amd64.rock" \
             docker-daemon:"dataplatformoci/mysql-router:${version}"
           docker push "dataplatformoci/mysql-router:${version}"
