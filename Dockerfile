@@ -1,6 +1,6 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
-ARG CONFIG_VERSION="0.8.22-1"
+ARG CONFIG_VERSION="0.8.24-1"
 
 RUN apt-get update && \
     apt-get install -y wget \

@@ -1,5 +1,5 @@
 name: mysql-router # the name of your ROCK
-base: ubuntu:20.04 # the base environment for this ROCK
+base: ubuntu:22.04 # the base environment for this ROCK
 version: '8.0' # just for humans. Semantic versioning is recommended
 summary: Charmed MySQL Router ROCK OCI # 79 char long summary
 description: |
@@ -25,7 +25,7 @@ parts:
         plugin: nil
         override-pull: |
             export DEBIAN_FRONTEND=noninteractive
-            export VERSION=0.8.22-1
+            export VERSION=0.8.24-1
             apt-get install -y wget lsb-release gnupg
             wget -q \
               https://dev.mysql.com/get/mysql-apt-config_${VERSION}_all.deb \
