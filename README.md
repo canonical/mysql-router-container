@@ -1,4 +1,6 @@
 # mysql-router-container
+[![Publish ROCK](https://github.com/canonical/mysql-router-container/actions/workflows/publish.yaml/badge.svg)](https://github.com/canonical/mysql-router-container/actions/workflows/publish.yaml)
+[![Operator Tests](https://github.com/canonical/mysql-router-container/actions/workflows/integration.yaml/badge.svg)](https://github.com/canonical/mysql-router-container/actions/workflows/integration.yaml)
 
 OCI image for MySQL Router. Developed for [MySQL Router Charmed Operator in K8s](https://github.com/canonical/mysql-router-k8s-operator).
 
